@@ -1,0 +1,46 @@
+/* restrincion */
+.highcharts-exporting-group,
+.highcharts-a11y-proxy-group{
+    display: none !important;
+}
+.highcharts-credits {
+    display: none !important;
+}
+
+#btnCapturar{
+    background-color: red;
+    height: 50px;
+    width: 50px;
+    background: url('/img/foto-icono.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0;
+}
+
+#btnExcel{
+    background-color: red;
+    height: 44px;
+    width: 50px;
+    background: url('/img/excel-logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0;
+}
+
+#btnPDF{
+    background-color: red;
+    height: 48px;
+    width: 50px;
+    background: url('/img/pdf-logo.svg'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* object-fit: contain; */
+    border: 0;
+}
+
+.imgSub{
+    width: 140px;
+}

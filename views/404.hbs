@@ -1,0 +1,48 @@
+<main class="index"> 
+    <header class="masthead-2 d-flex"> 
+        {{!-- masthead-2  --}}
+        {{#if user}}
+            {{#if user.kind}}
+                <div class="container text-center my-auto">
+                <p class="mb-1 ups">¡UPS! Administrador </p>
+                <h2 class="mb-1"> Lo sentimos, pero esta página no está disponible. </h2>
+                <br>
+                <h1 class="mb-1">Hidroponia Mama Luz</h1>
+                <h3 class="mb-5">
+                    <em>Te da la bienvenida </em>
+                </h3>
+                <a href="/profile" class="btn btn-primary">
+                    Regresar al huerto
+                </a>            
+                </div>
+            {{else}}
+                <div class="container text-center my-auto">
+                <p class="mb-1 ups">¡UPS! Encargado</p>
+                <h2 class="mb-1">Lo sentimos, pero esta página no está disponible. </h2>
+                <br>
+                <h1 class="mb-1">Hidroponia Mama Luz</h1>
+                <h3 class="mb-5">
+                    <em>Te da la bienvenida </em>
+                </h3>
+                <a href="/profile" class="btn btn-primary">
+                    Regresar al huerto
+                </a>            
+                </div>
+            {{/if}}
+        {{else}}
+            <div class="container text-center my-auto">
+            <p class="mb-1 ups">¡UPS! Colega</p>
+            <h2 class="mb-1">Lo sentimos, pero esta página no está disponible. </h2>
+            <br>
+            <h1 class="mb-1">Hidroponia Mama Luz</h1>
+            <h3 class="mb-5">
+                <em>Te da la bienvenida </em>
+            </h3>
+            <a href="/signin" class="btn btn-primary">
+                inicie sesión
+            </a>            
+            </div>
+        {{/if}}
+        
+    </header>
+</main>

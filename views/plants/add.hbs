@@ -1,0 +1,75 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/plants/add" method="post">
+                        <div class="form-group">
+                            <label for="name_common" class="form-label">Nombre común</label>
+                            <input type="text" id="name_common" class="form-control" name="name_common" autofocus required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name_scientific" class="form-label">Nombre científico</label>
+                            <input type="text" id="name_scientific" name="name_scientific" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="epoch_seeding" class="form-label">Época de siembra</label>
+                            <input type="text" id="epoch_seeding" name="epoch_seeding" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="period_harvest" class="form-label">Período de cosecha</label>
+                            <input type="text" id="period_harvest" name="period_harvest" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="percentage_germination" class="form-label">Porcentaje de germinación - %</label>
+                            <input type="text" id="percentage_germination" name="percentage_germination" class="form-control" pattern="[0-9]{1-3}" maxlength="3"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="purity" class="form-label">Pureza - %</label>
+                            <input type="text" id="purity" name="purity" class="form-control" pattern="[0-9]{1-3}" maxlength="3" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profundity" class="form-label">Profundidad - Cm</label>
+                            <input type="text" id="profundity" name="profundity" class="form-control" pattern="^[0-9]+([.][0-9]+)?$" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="distance_line" class="form-label">Distancia entre línea - Cm</label>
+                            <input type="text" id="distance_line" name="distance_line" class="form-control" pattern="^[0-9]+([.][0-9]+)?$" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="distance_seed" class="form-label">Distancia entre semilla - Cm</label>
+                            <input type="text" id="distance_seed" name="distance_seed" class="form-control" pattern="^[0-9]+([.][0-9]+)?$" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="net_weight" class="form-label">Peso neto - Gr</label>
+                            <input type="text" id="net_weight" name="net_weight" class="form-control" pattern="^[0-9]+([.][0-9]+)?$" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date_packing" class="form-label">Fecha de envasado</label>
+                            <input type="date" id="date_packing" name="date_packing" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date_expiration" class="form-label">Fecha de caducidad</label>
+                            <input type="date" id="date_expiration" name="date_expiration" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lot" class="form-label">Lote</label>
+                            <input type="text" id="lot" name="lot" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="observation" class="form-label">Observación</label>                            
+                            <textarea name="observation" id="observation" cols="10" rows="3" class="form-control"></textarea>
+                        </div>                        
+                        <div class="form-group mt-2">
+                            <button class="btn btn-success btn-block">
+                                Guardar
+                            </button> 
+                            <a href="/plants" class="btn btn-danger">Cancelar</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

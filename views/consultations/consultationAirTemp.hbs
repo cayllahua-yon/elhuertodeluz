@@ -1,0 +1,365 @@
+<div class="container p-4" id="content">
+    <div class="row">
+
+        <div class="col-md-6 mx-auto">
+            <article class="card">
+                <div class="card-body">
+                    
+                    <form action="/consultations/consultationAirTemp" method="post">
+                        <div class="form-group peru">
+                            <label for="value" class="form-label">Temperatura del Ambiente : </label>                                              
+                        </div>     
+                        
+                        <div class="row">
+                          <div class="col-md-6 mx-auto">
+                              <label for="date_start" class="form-label">Desde</label>
+                              <input type="date" id="date_start" name="date_start" class="form-control" required>
+                          </div>
+
+                          <div class="col-md-6 mx-auto">
+                              <label for="date_end" class="form-label">Hasta</label>
+                              <input type="date" id="date_end" name="date_end" class="form-control" required>                              
+                          </div>   
+                        </div>
+
+                        <div class="form-group mt-2">
+                            <button class="btn btn-success btn-block" onclick="pruebas()">
+                                Consultar!
+                            </button> 
+                        </div>
+                    </form>
+
+                </div>
+            </article>
+              {{!-- la grafica --}}
+            <div class="row mt-2">
+              <div class="col-md-12 ">
+                  <div class="card">
+                      <div class="card-body">          
+                          
+                          <figure class="highcharts-figure">
+                          <div id="container-linea" class="zima"></div>
+                          
+                          </figure>
+                        
+                      </div>        
+                  </div>        
+              </div> 
+            </div>
+            
+        </div>
+
+        <div class="col-md-5 mx-auto">
+            
+            <article class="row">
+              <div class="col-md-12 ">
+                  <div class="card">
+                      <div class="form-group ps-3 pt-2">
+                        <p class="mb-0">Descargue Archivos:</p>
+                      </div>
+                      <div class="card-body">          
+                          
+                            <button id="btnCapturar"></button>                            
+                                                     
+                            <input id="btnExcel" type="button"  onclick="RunExcelJSExport()"></input>
+                        
+                            <button id="btnPDF" onclick="generatePdf()"></button>
+                      </div>        
+                  </div>        
+              </div> 
+            </article>
+            
+            
+            <div class="card mt-2">
+                <div class="card-body">
+                    <table class="table table-bordered table-hover" id="my-table">
+                        <thead>
+                            <tr>
+                                <td>N°</td>
+                                <td>Fecha</td>
+                                <td>Temperatura  °C</td>
+                                <td>Hora</td>                            
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each consultation}}
+                                <tr>
+                                    <td> {{ incre @index  }}</td>
+                                    <td>{{ dayjs date_register }}</td>
+                                    <td>{{ value }}</td>
+                                    <td>{{ hour }}</td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            
+
+        </div>                            
+
+    </div>
+
+</div>
+
+
+<script >  
+
+ var consultationHR = {{{json consultation}}};
+ 
+  var ahv = [];
+  var ahf = [];  
+
+  for (let index = 0; index < consultationHR.length; index++) {
+    const n_ahv = consultationHR[index].value;
+
+    const n_ahf = consultationHR[index].date_register;
+    var  n_ahh = consultationHR[index].hour;
+  
+    
+    var fecha_ahf = new Date( n_ahf );
+    
+    var dia = String(fecha_ahf.getDate()).padStart(2, '0');
+    var mess = String(fecha_ahf.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var anno = fecha_ahf.getFullYear();
+ 
+   var n_ahfR =  `${dia}/${mess}/${anno} - ${n_ahh}`;   
+    //var n_ahfR = index + 1;
+
+    ahv.push(n_ahv);
+    ahf.push(n_ahfR);
+  }
+
+ const $grafica = document.querySelector("#container-linea");  
+  
+
+Highcharts.chart($grafica, {
+  chart: {
+    type: 'line'
+  },
+  title: {
+    text: 'Huerto Mama Luz'
+  },
+  subtitle: {
+    text: ''
+  },
+  xAxis: {
+    categories: ahf     
+  },
+  yAxis: {
+    title: {
+      text: 'Temperatura (°C)'
+    }
+  },
+  plotOptions: {
+    line: {
+      dataLabels: {
+        enabled: true
+      },
+      enableMouseTracking: false
+    }
+  },
+  series: [{
+    name: 'Hidroponia',
+    data: ahv       
+    
+  }]
+});
+
+// canvas
+
+//Definimos el botón para escuchar su click
+const $boton = document.querySelector("#btnCapturar"); // El botón que desencadena
+  $objetivo = document.body; // A qué le tomamos la fotocanvas
+// Nota: no necesitamos contenedor, pues vamos a descargarla
+
+// Agregar el listener al botón
+$boton.addEventListener("click", () => {
+  const opciones = {
+    ignoreElements: elemento => {
+      // Una función que ignora elementos. Regresa true si quieres que
+      // el elemento se ignore, y false en caso contrario
+      const tipo = elemento.nodeName.toLowerCase();
+      // Si es imagen o encabezado h1, ignorar
+      if (tipo === "nav" || tipo === "article") {
+        return true;
+      }
+      // Para todo lo demás, no ignorar
+      return false
+    }
+  };
+
+  html2canvas($objetivo, opciones) // Llamar a html2canvas y pasarle el elemento
+    .then(canvas => {
+      // Cuando se resuelva la promesa traerá el canvas
+      // Crear un elemento <a>
+      let enlace = document.createElement('a');
+      enlace.download = "temperaturaAmbiente.png";
+      // Convertir la imagen a Base64
+      enlace.href = canvas.toDataURL();
+      // Hacer click en él
+      enlace.click();
+    });
+});
+
+//////////////////////////////////EXCEL////////////////////////////////////////////////////////////////////////////
+
+function RunExcelJSExport() {
+  let data2 = {{{json consultation}}};
+ 
+  var data = [];  
+ 
+  for (let i = 0; i < data2.length; i++) { // recorremos el array
+    
+    const n_ahf = data2[i].date_register;
+    const n_ahv = data2[i].value;    
+    var  n_ahh = data2[i].hour;
+  
+    
+    var fecha_ahf = new Date( n_ahf );
+
+    var dd = String(fecha_ahf.getDate()).padStart(2, '0');
+    var mm = String(fecha_ahf.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = fecha_ahf.getFullYear();
+
+    var n_ahfR = dd + '/' + mm + '/' + yyyy;
+
+    data.push({date_register: n_ahfR , value: n_ahv, hour :  n_ahh});    
+
+  }
+
+  let wb = new ExcelJS.Workbook();
+  let workbookName = "temperaturaAmbiente.xlsx";
+  let worksheetName = "Datos";  
+
+  let ws = wb.addWorksheet(worksheetName, 
+    {
+      properties: {
+        tabColor: {argb:'FF00FF7F'}
+      }
+    }
+  );
+
+  ws.columns = [
+    { 
+      key: "date_register", 
+      header: "Fecha", 
+      width: 25,
+      style: {
+        alignment: { horizontal: "center"},
+        numFmt: "dd/mm/yyyy"
+      }
+    },
+    {
+      key: "value",
+      header: "Valor temperatura",
+      width: 18,
+      style: {
+        alignment: { horizontal: "center" }
+      }      
+    },
+    { 
+      key: "hour", 
+      header: "Hora", 
+      width: 15,
+      style: {
+        alignment: { horizontal: "center" }
+      }     
+    },
+  ];
+
+  ws.addRows(data);  
+  
+  ws.getCell(1,1).fill = {
+    type: "pattern",
+    pattern: "solid",
+    fgColor: { argb: "65e600" }
+  };
+  ws.getCell(1,2).fill = {
+    type: "pattern",
+    pattern: "solid",
+    fgColor: { argb: "65e600" }
+  };
+  ws.getCell(1,3).fill = {
+    type: "pattern",
+    pattern: "solid",
+    fgColor: { argb: "65e600" }
+  };      
+  
+  wb.xlsx.writeBuffer()
+    .then(function(buffer) {
+      saveAs(
+        new Blob([buffer], { type: "application/octet-stream" }),
+        workbookName
+      );
+  });  
+  
+}
+
+////////////////////////////////PDF//////////////////////////////////////////////
+      var nameConsultation =  {{{ json user.username }}}
+
+      function generatePdf() {
+        const { jsPDF } = window.jspdf;
+        
+        var doc = new jsPDF();   
+        var totalPagesExp = '{total_pages_count_string}'
+        var today = new Date();      
+       
+
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        newfecha = dd + '/' + mm + '/' + yyyy;
+       
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    
+
+         var newdat = "Fecha " + newfecha + ", Hora "+ time;         
+
+        doc.setFontSize(16);
+        doc.text("RESULTADO DE CONSULTA", 100, 37, {align: "center"});     
+
+        doc.setFont("calibra","calibra","normal");   
+        doc.line(62, 38, 139, 38); 
+        doc.text("Realizado por el usuario " + nameConsultation , 100, 43, {align: "center"});
+        doc.text(newdat, 100, 50, {align: "center"});
+
+        doc.autoTable({ html: '#my-table',   startY: 55,
+      
+          didDrawPage: function (data) {
+  
+            // Header       
+            doc.addImage("/img/new-final.png","png", data.settings.margin.left + 148,2,35,35);
+
+            doc.setFontSize(24);      
+            doc.setFont("times", "italic", "bold");
+            
+            doc.text("Hidroponia", data.settings.margin.left + 0, 20);
+            
+            doc.text("Mama Luz",data.settings.margin.left + 10, 27);
+        
+            // Footer         
+            var str = "Página " + doc.internal.getNumberOfPages() + ' de ' + totalPagesExp;         
+        
+            doc.setFontSize(10);
+        
+            // jsPDF 1.4+ uses getWidth, <1.4 uses .width
+            var pageSize = doc.internal.pageSize;
+            var pageHeight = pageSize.height
+              ? pageSize.height
+              : pageSize.getHeight();
+            doc.text(str, data.settings.margin.left, pageHeight - 10);
+          }, margin: { top: 38 },
+        
+        });
+
+         doc.putTotalPages(totalPagesExp)        
+
+      doc.save('temperaturaAmbiente.pdf');
+      
+      }
+
+</script>

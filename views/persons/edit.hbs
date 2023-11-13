@@ -1,0 +1,128 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/persons/edit/{{person.id}}" method="post">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" id="name" value="{{ person.name }}" class="form-control" name="name" pattern="^[a-zA-Z]*" autofocus required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname" class="form-label">Apellidos</label>
+                            <input type="text" id="lastname" value="{{  person.lastname }}" name="lastname" class="form-control" pattern="^[a-zA-Z\s]*" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dni" class="form-label">Dni</label>
+                            <input type="text" id="dni" value="{{ person.dni }}" name="dni" class="form-control" pattern="[0-9]{8}" maxlength="8" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date_birth" class="form-label">Fecha nacimiento</label>
+                            <input type="date" id="date_birth" value="{{ dayjs person.date_birth }}" name="date_birth" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sex" class="form-label">Sexo</label>                            
+                            <select name="sex" id="sex" class="form-select form-control" aria-label="Default select example" required>                                
+                                {{#if person.sex }}
+                                    <option value="1" >Hombre</option>
+                                    <option value="0" >Mujer</option>  
+                                {{else}}
+                                    <option value="0" >Mujer</option>  
+                                    <option value="1" >Hombre</option>
+                                {{/if}}                          
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="form-label">Dirección</label>
+                            <input type="text" id="address" value="{{ person.address}}" name="address" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" value="{{ person.email}}" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="form-label">Nombre de usuario</label>
+                            <input type="text" id="username" value="{{ person.username }}" name="username" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="permitEdit" class="form-label">Contraseña </label>
+                            
+                            <select name="select" id="permitEdit" onchange="permitEditPassword();" class="form-select form-control mb-2">
+                                <option value="value1" selected> Mantener Contraseña</option>
+                                <option value="value2" > Cambiar Contraseña</option>                                
+                            </select>
+                            <input type="password" value="" id="cajaP" name="password" class="form-control" disabled>
+                            <button class="btn btn-primary mt-1" id="btn" name="hola" type="button" onclick="mostrarContrasena()">Mostrar contraseña</button>
+
+                        </div>
+                            {{#if user.kind }}
+                                <div class="form-group">
+                                    <label for="status" class="form-label">Estado</label>                                
+                                    <select name="status" id="status" class="form-select form-control" aria-label="Default select example">                                
+                                        {{#if person.status }}
+                                            <option value="1" >Activo</option>
+                                            <option value="0" >Inactivo</option>    
+                                        {{else}}
+                                            <option value="0" >Inactivo</option>  
+                                            <option value="1" >Activo</option>
+                                        {{/if}}                          
+                                    </select>  
+                                </div>
+                                <div class="form-group">
+                                    <label for="kind" class="form-label">Tipo</label>                                
+                                    <select name="kind" id="kind" class="form-select form-control" aria-label="Default select example">                                
+                                        {{#if person.kind }}
+                                            <option value="1" >Administrador</option>
+                                            <option value="0" >Encargado</option>     
+                                        {{else}}
+                                            <option value="0" >Encargado</option>  
+                                            <option value="1" >Administrador</option>
+                                        {{/if}}                          
+                                    </select>                                
+                                </div>
+                            {{else}}
+                                <div class="form-group">
+                                </div>
+                            {{/if}}                          
+                                                 
+                        <div class="form-group mt-2">
+                            <button class="btn btn-success btn-block">
+                                Guardar
+                            </button> 
+                            <a href="/persons" class="btn btn-danger">Cancelar</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function mostrarContrasena(){
+    var tipo = document.getElementById("cajaP");  
+
+        if(tipo.type == "password"){
+            tipo.type = "text";
+            document.getElementById("btn").innerHTML = "Ocultar contraseña";
+        }else{
+            tipo.type = "password";
+            document.getElementById("btn").innerHTML = "Mostrar contraseña";    
+        }
+    }
+    // new 
+    function permitEditPassword() {
+        let permit = document.getElementById('permitEdit');
+        let statusP = permit.value;        
+
+        if ( statusP == "value1") {
+            document.getElementById('cajaP').disabled = true; 
+            document.getElementById('cajaP').value = ""; 
+
+        } else {
+            document.getElementById('cajaP').disabled = false;             
+        }    
+    }
+</script>

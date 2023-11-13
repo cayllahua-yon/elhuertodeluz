@@ -1,0 +1,186 @@
+<div class="container p-4">
+    <div class="row">
+        {{#if user.kind}}
+            {{#each plants}}            
+                <div class="col-md-4 mt-2">
+                    <div class="card ">
+                        <div class="card-body">
+                            
+                            <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">
+                                        <h3 class="card-title text-uppercase text-center text-primary">
+                                            {{ name_common }}
+                                        </h3>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Nombre científico</th>
+                                    <td> {{ name_scientific }}</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Época de siembra</th>
+                                    <td>{{ epoch_seeding }}</td>                                    
+                                </tr>
+                                <tr>
+                                    <th scope="row">Período de cosecha</th>
+                                    <td>{{  period_harvest }}</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Porcentaje germinación</th>
+                                    <td>{{ percentage_germination }} %</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Pureza</th>
+                                    <td>{{  purity }} %</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Profundidad</th>
+                                    <td>{{ profundity }} Cm</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Distancia entre línea</th>
+                                    <td>{{  distance_line }} Cm</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Distancia entre semilla</th>
+                                    <td> {{  distance_seed }} Cm</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Peso neto</th>
+                                    <td>{{ net_weight }} gr</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha de envasado</th>
+                                    <td> {{ dayjs date_packing }}</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha caducidad</th>
+                                    <td>{{ dayjs date_expiration }}</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Lote</th>
+                                    <td> {{ lot }}</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Observación</th>
+                                    <td>{{ observation }}</td>                               
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha creacion</th>
+                                    <td>{{ dayjs created_at }}</td>                                
+                                </tr>
+                            </tbody>
+                            </table>
+
+                            <div class="text-center">
+                                <a href="/plants/delete/{{id}}" class="btn btn-danger">Eliminar planta</a>
+                                <a href="/plants/edit/{{id}}" class="btn btn-secondary">Editar planta</a>                                
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            {{else}}
+                <div class="col-md-4 mx-auto">
+                    <div class="card card-body text-center">
+                        <p>No hay plantas guardadas todavía.</p>
+                        <a href="/plants/add">¡Crea uno!</a>
+                    </div>
+                </div>        
+            {{/each}}
+        {{else}}  
+            {{#each plants}}             
+                <div class="col-md-4 mt-2">
+                    <div class="card ">
+                        <div class="card-body">
+                            
+                            <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">
+                                        <h3 class="card-title text-uppercase text-center text-primary">
+                                            {{ name_common }}
+                                        </h3>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Nombre científico</th>
+                                    <td> {{ name_scientific }}</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Época de siembra</th>
+                                    <td>{{ epoch_seeding }}</td>                                    
+                                </tr>
+                                <tr>
+                                    <th scope="row">Período de cosecha</th>
+                                    <td>{{  period_harvest }}</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Porcentaje germinación</th>
+                                    <td>{{ percentage_germination }} %</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Pureza</th>
+                                    <td>{{  purity }} %</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Profundidad</th>
+                                    <td>{{ profundity }} Cm</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Distancia entre línea</th>
+                                    <td>{{  distance_line }} Cm</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Distancia entre semilla</th>
+                                    <td> {{  distance_seed }} Cm</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Peso neto</th>
+                                    <td>{{ net_weight }} gr</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha de envasado</th>
+                                    <td> {{ dayjs date_packing }}</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha caducidad</th>
+                                    <td>{{ dayjs date_expiration }}</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Lote</th>
+                                    <td> {{ lot }}</td>                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">Observación</th>
+                                    <td>{{ observation }}</td>                               
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha creacion</th>
+                                    <td>{{ dayjs created_at }}</td>                                
+                                </tr>
+                            </tbody>
+                            </table>        
+
+                        </div>
+                    </div>
+                </div>
+            {{else}}
+                <div class="col-md-4 mx-auto">
+                    <div class="card card-body text-center">
+                        <p>No hay plantas guardadas todavía.</p>
+                        
+                    </div>
+                </div>        
+            {{/each}}
+        {{/if}}  
+        
+
+    </div>
+</div>

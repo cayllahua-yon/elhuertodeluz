@@ -1,0 +1,357 @@
+<div class="container p-4">
+  <div class="row  g-4 wrapper-water">
+            <div class="item ">
+              <div class="card-header">NFT Auto Sensor</div>            
+              <div class="cuadrado">                  
+                <div >
+                    <div class="text-center mt-2">
+                        <button type="button" class="btn btn-success btn-lg col-md-5" onclick='OnOffStateNftSensor("ON")'>ON</button>
+                        <button type="button" class="btn btn-danger btn-lg col-md-5" onclick='OnOffStateNftSensor("OFF")'>OFF</button>
+                    </div>
+                    <div class="text-center">
+                        <img class="imgSub mt-4" id="imgStateNftSensor" src="img/estado-espera.gif">
+                        
+                    </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="card-header">NFT Auto Water Level</div>            
+              <div class="cuadrado">                  
+                <div >
+                    <div class="text-center mt-2">
+                        <button type="button" class="btn btn-success btn-lg col-md-5" onclick='OnOffStateWaterLevelNft("ON")'>ON</button>
+                        <button type="button" class="btn btn-danger btn-lg col-md-5" onclick='OnOffStateWaterLevelNft("OFF")'>OFF</button>
+                    </div>
+                    <div class="text-center">
+                        <img class="imgSub mt-4" id="imgStateWaterLevelNft" src="img/estado-espera.gif">
+                        
+                    </div>
+                </div>
+              </div>    
+            </div>
+            <div class="item ">
+              <div class="card-header">NFT Auto Bomba</div>            
+              <div class="cuadrado">                  
+                <div>
+                    <div class="text-center mt-2">
+                        <button type="button" class="btnPermitNftBombAuto btn btn-success btn-lg col-md-5" onclick='OnOffNftBombAutomatico("ON")'>ON</button>
+                        <button type="button" class="btnPermitNftBombAuto btn btn-danger btn-lg col-md-5" onclick='OnOffNftBombAutomatico("OFF")'>OFF</button>
+                    </div>
+                    <div class="text-center">
+                        <img class="imgSub mt-4" id="imgStateAutoNftBomb" src="img/estado-espera.gif">
+                        
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="card-header">NFT Maual Bomba</div>            
+              <div class="cuadrado">                  
+                <div>
+                    <div class="text-center mt-2">
+                        <button type="button" class="btnPermitNftBombManual btn btn-success btn-lg col-md-5" onclick='OnOffNftBombManual("ON")'>ON</button>
+                        <button type="button" class="btnPermitNftBombManual btn btn-danger btn-lg col-md-5" onclick='OnOffNftBombManual("OFF")'>OFF</button>
+                    </div>
+                    <div class="text-center">
+                        <img class="imgSub mt-4" id="imgStateManualNftBomb" src="img/estado-espera.gif">
+                        
+                    </div>
+                </div>
+              </div>    
+            </div>
+            <div class="item ">
+              <div class="card-header">Post Almacigo Auto</div>            
+              <div class="cuadrado">                  
+                <div>
+                    <div class="text-center mt-2">
+                        <button type="button" class="btnPermitPostSeedlingAuto btn btn-success btn-lg col-md-5" onclick='OnOffPostAlmacigoAutomatico("ON")'>ON</button>
+                        <button type="button" class="btnPermitPostSeedlingAuto btn btn-danger btn-lg col-md-5" onclick='OnOffPostAlmacigoAutomatico("OFF")'>OFF</button>
+                    </div>
+                    <div class="text-center">
+                        <img class="imgSub mt-4" id="imgStateAutoPostSeedling" src="img/estado-espera.gif">
+                        
+                    </div>
+                </div>
+              </div>  
+            </div>
+            <div class="item ">
+              <div class="card-header">Post Almacigo Manual</div>            
+              <div class="cuadrado">                  
+                <div>
+                    <div class="text-center mt-2">
+                        <button type="button" class="btnPermitPostSeedlingManual btn btn-success btn-lg col-md-5" onclick='OnOffPostAlmacigoManual("ON")'>ON</button>
+                        <button type="button" class="btnPermitPostSeedlingManual btn btn-danger btn-lg col-md-5" onclick='OnOffPostAlmacigoManual("OFF")'>OFF</button>
+                    </div>
+                    <div class="text-center">
+                        <img class="imgSub mt-4" id="imgStateManualPostSeedling" src="img/estado-espera.gif">
+                        
+                    </div>
+                </div>
+              </div>    
+            </div>
+            <div class="item ">
+              <div class="card-header">Almacigo automatico</div>            
+              <div class="cuadrado">                  
+                <div >
+                    <div class="text-center mt-2">
+                        <button type="button" class="btnPermitSeedlingAuto btn btn-success btn-lg col-md-5" onclick='OnOffAlmacigoAutomatico("ON")'>ON</button>
+                        <button type="button" class="btnPermitSeedlingAuto btn btn-danger btn-lg col-md-5" onclick='OnOffAlmacigoAutomatico("OFF")'>OFF</button>
+                    </div>
+                    <div class="text-center">
+                        <img class="imgSub mt-4" id="imgStateAutoSeedling" src="img/estado-espera.gif">                        
+                    </div>
+                </div>
+              </div>  
+            </div>
+            <div class="item ">
+              <div class="card-header">Almacigo manual</div>            
+              <div class="cuadrado">                  
+                <div >
+                    <div class="text-center mt-2">
+                        <button type="button" class="btnPermitSeedlingManual btn btn-success btn-lg col-md-5" onclick='OnOffAlmacigoManual("ON")'>ON</button>
+                        <button type="button" class="btnPermitSeedlingManual btn btn-danger btn-lg col-md-5" onclick='OnOffAlmacigoManual("OFF")'>OFF</button>
+                    </div>
+                    <div class="text-center">
+                        <img class="imgSub mt-4" id="imgStateManualSeedling" src="img/estado-espera.gif">
+                        
+                    </div>
+                </div>
+              </div>  
+            </div>
+            <div class="item ">
+              <div class="card-header">Alumbrado </div>            
+              <div class="cuadrado">                  
+                
+                <div >
+                    <div class="text-center mt-2">
+                        <button type="button" class="btn btn-success btn-lg col-md-5" onclick='OnOfflighting("ON")'>ON</button>
+                        <button type="button" class="btn btn-danger btn-lg col-md-5" onclick='OnOfflighting("OFF")'>OFF</button>
+                    </div>
+                    <div class="text-center">
+                        <img class="imgSub mt-4" id="imgStateLighting" src="img/estado-espera.gif">
+                        
+                    </div>
+                </div>
+
+              </div> 
+            </div>
+            <div class="item ">
+              <div class="card-header">Calibración Sensor</div>            
+              <div class="cuadrado">                  
+                <div >
+                    <div class="text-center mt-2">
+                        <button type="button" class="btn btn-success btn-lg col-md-5" onclick='OnOffStateNftCalibration("ON")'>ON</button>
+                        <button type="button" class="btn btn-danger btn-lg col-md-5" onclick='OnOffStateNftCalibration("OFF")'>OFF</button>
+                    </div>
+                    <div class="text-center">
+                        <img class="imgSub mt-4" id="imgStateNftCalibration" src="img/estado-espera.gif">
+                        
+                    </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="item ">
+              <div class="card-header">Llenar Tacho con Agua</div>            
+              <div class="cuadrado">                  
+                <div >
+                    <div class="text-center  mt-4 ">
+                      
+                        <label for="valueAgua" >Valor Lt: </label>
+                        <input type="number" name="" id="valueAgua"  value="1" min="1" max="100"  class="form-control"> 
+                    </div>
+                    <div class="text-center mt-4 ">                        
+                        <button type="button" id="goValue" class="btn btn-success btn-lg " >LLENAR TANQUE</button>                       
+                       
+                    </div>
+                    
+                </div>
+
+              </div>
+            </div>
+            
+            
+  </div>
+
+
+</div>
+
+<script>
+  //----------------------------------------------------------
+  var resultStateNftSensor = {{{json conasns}}}  //act state nft Sensor auto
+  var stateNftSensorValue = resultStateNftSensor[0].value
+
+//---------------------------------------------------------------------
+  var resultStateWaterLevelNft = {{{json conawln}}}  //act state nft Water Level
+  var stateWaterLevelNftValue = resultStateWaterLevelNft[0].value
+
+  //-------------------------------------------------------------------------------
+  var resultStateAutoNftBomb = {{{json conasb}}} //act state Bomb nft auto
+  var stateAutoNftBombValue = resultStateAutoNftBomb[0].value  
+
+  var resultStateManualNftBomb = {{{json conabn}}} // act Bomb Nft Manual
+  var stateManualNftBombValue = resultStateManualNftBomb[0].value 
+
+  //----------------------------------------------------------------------------
+  var resultStateAutoPostSeedling = {{{json conasps}}} // state POST almacigo auto
+  var stateAutoPostSeedlingValue = resultStateAutoPostSeedling[0].value  
+
+  var resultStateManualPostSeedling = {{{json conabps}}} //Post Almacigo Manual
+  var stateManualPostSeedlingValue = resultStateManualPostSeedling[0].value 
+
+  //-------------------------------------------------------------------------
+  var resultStateAutoSeedling = {{{json conass}}} // state almacigo auto
+  var stateAutoSeedlingValue = resultStateAutoSeedling[0].value  
+
+  var resultStateManualSeedling = {{{json conabs}}} // Almacigo manual
+  var stateManualSeedlingValue = resultStateManualSeedling[0].value 
+  //---------------------------------------------------------
+   var resultStateLighting = {{{json conalt}}}  //Alumbrado
+  var stateLightingValue = resultStateLighting[0].value
+
+  //----------------------------------------------------------
+  var resultStateNftCalibration = {{{json conasnsc}}}  //state nft Sensor calibracion 
+  var stateNftCalibrationValue = resultStateNftCalibration[0].value
+
+/*=============================NFT=================================================*/  
+/*=============================NFT sensores Auto=================================================*/  
+if (stateNftSensorValue == "ON"){
+     document.getElementById("imgStateNftSensor").src = "img/estado-on.png";    
+    
+  }else 
+      if (stateNftSensorValue== "OFF"){
+          document.getElementById('imgStateNftSensor').src = "img/estado-off.png";
+             
+      }
+/*=============================NFT Water Level State=================================================*/  
+if (stateWaterLevelNftValue == "ON"){
+     document.getElementById("imgStateWaterLevelNft").src = "img/estado-on.png";    
+    
+  }else 
+      if (stateWaterLevelNftValue== "OFF"){
+          document.getElementById('imgStateWaterLevelNft').src = "img/estado-off.png";
+             
+      }
+
+/*=============================NFT Auto Bomba=================================================*/ 
+//Auto NFT Bomb
+  if (stateAutoNftBombValue == "ON"){
+     document.getElementById("imgStateAutoNftBomb").src = "img/estado-on.png";
+    
+      document.querySelectorAll('.btnPermitNftBombManual').forEach( (elem)=> {
+              elem.disabled = true;
+      });
+  }else 
+      if (stateAutoNftBombValue== "OFF"){
+          document.getElementById('imgStateAutoNftBomb').src = "img/estado-off.png";
+          
+          document.querySelectorAll('.btnPermitNftBombManual').forEach( (elem)=> {
+              elem.disabled = false;
+          });
+          }
+  // Manual NFT Bomb
+  
+  if (stateManualNftBombValue == "ON"){
+     document.getElementById("imgStateManualNftBomb").src = "img/estado-on.png";
+     
+      document.querySelectorAll('.btnPermitNftBombAuto').forEach( (elem)=> {
+              elem.disabled = true;
+      });
+  }else 
+      if (stateManualNftBombValue== "OFF"){
+          document.getElementById('imgStateManualNftBomb').src = "img/estado-off.png";
+
+          document.querySelectorAll('.btnPermitNftBombAuto').forEach( (elem)=> {
+              elem.disabled = false;
+          });    
+      }
+
+/*=============================PosT Almacigo=================================================*/          
+ //Auto Post Seedling
+  if (stateAutoPostSeedlingValue == "ON"){
+     document.getElementById("imgStateAutoPostSeedling").src = "img/estado-on.png";
+    
+      document.querySelectorAll('.btnPermitPostSeedlingManual').forEach( (elem)=> {
+              elem.disabled = true;
+      });
+  }else 
+      if (stateAutoPostSeedlingValue== "OFF"){
+          document.getElementById('imgStateAutoPostSeedling').src = "img/estado-off.png";
+          
+          document.querySelectorAll('.btnPermitPostSeedlingManual').forEach( (elem)=> {
+              elem.disabled = false;
+          });
+          }
+  // Manual Post Seedling
+  
+  if (stateManualPostSeedlingValue == "ON"){
+     document.getElementById("imgStateManualPostSeedling").src = "img/estado-on.png";
+     
+      document.querySelectorAll('.btnPermitPostSeedlingAuto').forEach( (elem)=> {
+              elem.disabled = true;
+      });
+  }else 
+      if (stateManualPostSeedlingValue== "OFF"){
+          document.getElementById('imgStateManualPostSeedling').src = "img/estado-off.png";
+
+          document.querySelectorAll('.btnPermitPostSeedlingAuto').forEach( (elem)=> {
+              elem.disabled = false;
+          });    
+      }
+  
+/*=============================Almacigo=================================================*/          
+  //Auto Seedling
+  if (stateAutoSeedlingValue == "ON"){
+     document.getElementById("imgStateAutoSeedling").src = "img/estado-on.png";
+      document.querySelectorAll('.btnPermitSeedlingManual').forEach( (elem)=> {
+              elem.disabled = true;
+      });
+  }else 
+      if (stateAutoSeedlingValue== "OFF"){
+          document.getElementById('imgStateAutoSeedling').src = "img/estado-off.png";
+          //document.querySelector('#prueba').disabled = false;
+          document.querySelectorAll('.btnPermitSeedlingManual').forEach( (elem)=> {
+              elem.disabled = false;
+          });
+          }
+  // Manual Seedling
+  
+  if (stateManualSeedlingValue == "ON"){
+     document.getElementById("imgStateManualSeedling").src = "img/estado-on.png";
+     //btnPermitSeedlingAuto
+      document.querySelectorAll('.btnPermitSeedlingAuto').forEach( (elem)=> {
+              elem.disabled = true;
+      });
+  }else 
+      if (stateManualSeedlingValue== "OFF"){
+          document.getElementById('imgStateManualSeedling').src = "img/estado-off.png";
+          document.querySelectorAll('.btnPermitSeedlingAuto').forEach( (elem)=> {
+              elem.disabled = false;
+          });    
+      }
+  /*=============================Alumbrado=================================================*/ 
+
+ if (stateLightingValue == "ON"){
+     document.getElementById("imgStateLighting").src = "img/estado-on.png";    
+    
+  }else 
+      if (stateLightingValue== "OFF"){
+          document.getElementById('imgStateLighting').src = "img/estado-off.png";
+             
+      }
+
+  /*=============================NFT calibration - consulta =================================================*/  
+  if (stateNftCalibrationValue == "ON"){
+     document.getElementById("imgStateNftCalibration").src = "img/estado-on.png";    
+    
+  }else 
+      if (stateNftCalibrationValue== "OFF"){
+          document.getElementById('imgStateNftCalibration').src = "img/estado-off.png";
+             
+      }
+
+
+</script>

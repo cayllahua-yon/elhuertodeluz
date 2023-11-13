@@ -1,0 +1,38 @@
+<main class="index"> 
+    <header class="masthead d-flex">
+        {{#if user}}
+            {{#if user.kind}}
+                <div class="container text-center my-auto">
+                <h1 class="mb-1">Hidroponia Mama Luz</h1>
+                <h3 class="mb-5">
+                    <em>Te da la bienvenida </em>
+                </h3>
+                <a href="/profile" class="btn btn-primary">
+                    Empecemos a ver el huerto
+                </a>            
+                </div>
+            {{else}}
+                <div class="container text-center my-auto">
+                <h1 class="mb-1">Hidroponia Mama Luz</h1>
+                <h3 class="mb-5">
+                    <em>Te da la bienvenida </em>
+                </h3>
+                <a href="/profile" class="btn btn-primary">
+                    Empecemos a ver el huerto..
+                </a>            
+                </div>
+            {{/if}}
+        {{else}}
+            <div class="container text-center my-auto">
+            <h1 class="mb-1">Hidroponia Mama Luz</h1>
+            <h3 class="mb-5">
+                <em>Te da la bienvenida </em>
+            </h3>
+            <a href="/signin" class="btn btn-primary">
+                Empecemos
+            </a>            
+            </div>
+        {{/if}}
+        
+    </header>
+</main>

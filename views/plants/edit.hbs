@@ -1,0 +1,75 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/plants/edit/{{plant.id}}" method="post">
+                        <div class="form-group">
+                            <label for="" class="form-label">Nombre común</label>
+                            <input type="text" value="{{ plant.name_common }}" class="form-control" name="name_common" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Nombre científico</label>
+                            <input type="text" value="{{  plant.name_scientific }}" name="name_scientific" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Época de siembra</label>
+                            <input type="text" value="{{ plant.epoch_seeding }}" name="epoch_seeding" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Período de cosecha</label>
+                            <input type="text" value="{{ plant.period_harvest }}" name="period_harvest" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Porcentaje de germinación - %</label>
+                            <input type="text" value="{{ plant.percentage_germination}}" name="percentage_germination" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Pureza - %</label>
+                            <input type="text" value="{{ plant.purity}}" name="purity" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Profundidad - Cm</label>
+                            <input type="text" value="{{ plant.profundity}}" name="profundity" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Distancia entre línea - Cm</label>
+                            <input type="text" value="{{ plant.distance_line}}" name="distance_line" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Distancia entre semilla - Cm</label>
+                            <input type="text" value="{{ plant.distance_seed }}" name="distance_seed" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Peso neto - Gr</label>
+                            <input type="text" value="{{ plant.net_weight }}" name="net_weight" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Fecha de envasado</label>
+                            <input type="date" value="{{ dayjs plant.date_packing }}" name="date_packing" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Fecha de caducidad</label>
+                            <input type="date" value="{{ dayjs plant.date_expiration }}" name="date_expiration" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Lote</label>
+                            <input type="text" value="{{ plant.lot }}" name="lot" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Observación</label>                            
+                            <textarea name="observation" id="" cols="10" rows="3" class="form-control">{{ plant.observation }}</textarea>
+                        </div>                        
+                        <div class="form-group mt-2">
+                            <button class="btn btn-success btn-block">
+                                Guardar
+                            </button> 
+                            <a href="/plants" class="btn btn-danger">Cancelar</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

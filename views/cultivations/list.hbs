@@ -1,0 +1,149 @@
+<div class="container p-4">
+    <div class="row">
+        {{#if user.kind}}
+            {{#each cultivations}}
+                <div class="col-md-4 mt-2">
+                    <div class="card ">
+                        <div class="card-body ">
+                            
+                            <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">
+                                        <h3 class="card-title text-uppercase text-center text-primary">
+                                             {{name}}
+                                        </h3>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Fecha inicio</th>
+                                    <td>{{ dayjs date_inicio}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha germinación</th>
+                                    <td>{{ dayjs date_germination}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha media dosis</th>
+                                    <td> {{ dayjs date_mediumdose}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha dosis completa</th>
+                                    <td> {{ dayjs date_fulldose}} </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha primer transplante</th>
+                                    <td>  {{ dayjs date_firsttransplant}} </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha último transplante </th>
+                                    <td> {{ dayjs date_finaltransplant}} </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha cosecha </th>
+                                    <td> {{ dayjs date_harvest}}  </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Cantidad plantas</th>
+                                    <td> {{quantity}} </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Observación</th>
+                                    <td> {{observation}} </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha creación</th>
+                                    <td>{{dayjs created_at}} </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                            <div class="text-center">
+                                <a href="/cultivations/delete/{{id}}" class="btn btn-danger">Eliminar cultivo</a>
+                                <a href="/cultivations/edit/{{id}}" class="btn btn-secondary">Editar cultivo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{else}}
+                <div class="col-md-4 mx-auto">
+                    <div class="card card-body text-center">
+                        <p>Todavía no hay cultivos guardados.</p>
+                        <a href="/cultivations/add">¡Crea uno!</a>
+                    </div>
+                </div>        
+            {{/each}}
+        {{else}}                            
+            {{#each cultivations}}
+                <div class="col-md-4 mt-2">
+                    <div class="card ">
+                        <div class="card-body">
+                            
+                            <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">
+                                        <h3 class="card-title text-uppercase text-center text-primary">
+                                             {{name}}
+                                        </h3>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Fecha inicio</th>
+                                    <td>{{ dayjs date_inicio}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha germinación</th>
+                                    <td>{{ dayjs date_germination}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha media dosis</th>
+                                    <td> {{ dayjs date_mediumdose}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha dosis completa</th>
+                                    <td> {{ dayjs date_fulldose}} </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha primer transplante</th>
+                                    <td>  {{ dayjs date_firsttransplant}} </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha último transplante </th>
+                                    <td> {{ dayjs date_finaltransplant}} </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha cosecha </th>
+                                    <td> {{ dayjs date_harvest}}  </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Cantidad plantas</th>
+                                    <td> {{quantity}} </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Observación</th>
+                                    <td> {{observation}} </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha creación</th>
+                                    <td>{{dayjs created_at}} </td>
+                                </tr>
+                            </tbody>
+                            </table>   
+
+                        </div>
+                    </div>
+                </div>
+            {{else}}
+                <div class="col-md-4 mx-auto">
+                    <div class="card card-body text-center">
+                        <p>Todavía no hay cultivos guardados.</p>
+                    </div>
+                </div>        
+            {{/each}}                            
+        {{/if}}    
+    </div>
+</div>

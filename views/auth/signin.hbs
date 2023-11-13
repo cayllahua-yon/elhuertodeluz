@@ -1,0 +1,48 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Iniciar sesión</h3>
+                </div>
+                <div class="card-body">
+                    <img src="/img/logo.PNG" alt="Logo mama luz" class="card-img-top mx-auto m-2 rounded-circle w-50">
+                    <form action="/signin" method="POST" class="vstack gap-2 mx-auto">
+                        <div class="form-group">
+                            <input type="text" name="username" value="{{username}}" placeholder="Nombre de usuario" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" placeholder="Contraseña" class="form-control" required>                        
+                        </div>
+                        <div class="form-group text-start">
+                        <input type="checkbox"  value="" onclick="mostrarP()"> <label id="btnP" class="label-iz"> Mostrar contraseña</label>
+                           
+                        </div>
+                        
+                        <div class="form-group mt-2">
+                            <button class="btn btn-success btn-block">
+                                Iniciar sesión
+                            </button>
+                        </div>
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function mostrarP(){
+    var tipo = document.getElementById("password");  
+
+        if(tipo.type == "password"){
+            tipo.type = "text";
+            document.getElementById("btnP").innerHTML = "Ocultar contraseña";
+        }else{
+            tipo.type = "password";
+            document.getElementById("btnP").innerHTML = "Mostrar contraseña";    
+        }
+    }
+
+</script>

@@ -1,0 +1,108 @@
+<div class="container p-4">  
+
+  <div class="row  g-4 wrapper-water">
+            <div class="item ">
+              <div class="card-header">Water pH</div>            
+              <div class="cuadrado">                  
+                <div id="container-value-water-ph"> </div>                
+              </div>
+            </div>
+            <div class="item">
+              <div class="card-header">Water CE</div>            
+              <div class="cuadrado">                  
+                <div id="container-value-water-ec"> </div>                
+              </div>    
+            </div>
+            <div class="item ">
+              <div class="card-header">Water Temp</div>            
+              <div class="cuadrado">                  
+                <div id="container-value-water-temp"> </div>                
+              </div>  
+            </div>
+            <div class="item ">
+              <div class="card-header">Water Flow</div>            
+              <div class="cuadrado">                  
+                <div id="container-value-water-flow"> </div>                
+              </div>    
+            </div>
+            <div class="item ">
+              <div class="card-header">Air Temp</div>            
+              <div class="cuadrado">                  
+                <div id="container-value-air-temp"> </div>                
+              </div>  
+            </div>
+            <div class="item ">
+              <div class="card-header">Air Humidity</div>            
+              <div class="cuadrado">                  
+                <div id="container-value-air-humidity"> </div>                
+              </div>  
+            </div>
+            <div class="item ">
+              <div class="card-header">Water level Rotoplas</div>            
+              <div class="cuadrado">                  
+                <div id="container-value-water-level-rotoplas"> </div>                
+              </div> 
+            </div>
+            <div class="item ">
+              <div class="card-header">Seedling Humidity</div>            
+              <div class="cuadrado">                  
+                <div id="container-value-seedling-humidity"> </div>                
+              </div> 
+            </div>
+            <div class="item ">
+              <div class="card-header">Buoy</div>            
+              <div class="cuadrado">                  
+                <div id="container-value-buoy"> </div>                
+              </div> 
+            </div>
+            <div class="item ">
+              <div class="card-header">Calibracion PH</div>            
+              <div class="cuadrado">                  
+                <div id="container-value-calibration-water-ph"> </div>                
+              </div> 
+            </div>
+            <div class="item ">
+              <div class="card-header">Calibracion EC</div>            
+              <div class="cuadrado">                  
+                <div id="container-value-calibration-water-ec"> </div>                
+              </div> 
+            </div>
+            <div class="item ">
+              <div class="card-header">Calibracion Temp</div>            
+              <div class="cuadrado">                  
+                <div id="container-value-calibration-water-temp"> </div>                
+              </div> 
+            </div>   
+            <div class="item ">
+              <div class="card-header">Consumo total agua</div>            
+              <div class="cuadrado">                  
+                <div id="container-value-total-water"> </div>                
+              </div> 
+            </div>         
+  </div>
+
+</div>
+
+<script >  
+
+  var resultph = {{{json conph}}}
+  var resultec = {{{json conec}}}
+  var resultwt = {{{json conwt}}}
+  var resultwf = {{{json conwf}}}
+  var resultat = {{{json conat}}}
+  var resultah = {{{json conah}}}
+  var resultslh = {{{json conslh}}}
+  var resultb = {{{json conb}}} 
+  var resulttwc = {{{json contwc}}}   
+
+  window.phvalue = resultph[0].value 
+  window.ecvalue = resultec[0].value 
+  window.wtvalue = resultwt[0].value 
+  window.wfvalue = resultwf[0].value 
+  window.atvalue = resultat[0].value 
+  window.ahvalue = resultah[0].value 
+  window.slhvalue = resultslh[0].value
+  window.bvalue = resultb[0].value
+  window.tcwvalue = resulttwc[0]["SUM(value)"]
+  
+</script>

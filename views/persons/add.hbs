@@ -1,0 +1,107 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/persons/add" method="post">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" id="name" class="form-control" name="name" value="{{name}}" pattern="^[a-zA-Z]*" autofocus required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname" class="form-label">Apellidos</label>
+                            <input type="text" id="lastname" name="lastname" class="form-control" value="{{lastname}}" pattern="^[a-zA-Z\s]*" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dni" class="form-label">Dni</label>
+                            <input type="text" id="dni" name="dni" class="form-control" value="{{dni}}" pattern="[0-9]{8}" maxlength="8" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date_birth" class="form-label">Fecha de nacimiento</label>
+                            <input type="date" id="date_birth" name="date_birth" class="form-control" value="{{date_birth}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sex" class="form-label">Sexo</label>
+                            <select name="sex" id="sex" class="form-select form-control" aria-label="Default select example" required>                                
+                                {{#if sexo}}
+                                    <option value="1" >Hombre</option>
+                                    <option value="0" >Mujer</option> 
+                                {{else}}
+                                    <option value="0" >Mujer</option>  
+                                    <option value="1" >Hombre</option>
+                                {{/if}}                          
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="form-label">Dirección</label>
+                            <input type="text" id="address" name="address" class="form-control" value="{{address}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" value="{{email}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="form-label">Nombre de usuario </label>
+                            <input type="text" id="username" name="username" class="form-control" value="{{username}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="caja">
+                                <input type="password" id="password" name="password" class="form-control" value="{{password}}" required>
+                                <button class="btn btn-primary mt-1" id="btn" name="hola" type="button" onclick="mostrarContrasena()">Mostrar contraseña</button>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="status" class="form-label">Estado</label>
+                            <select id="status" name="status" class="form-select form-control" aria-label="Default select example" required>                                
+                                 {{#if estado }}
+                                        <option value="1" >Activo</option>
+                                        <option value="0" >Inactivo</option>  
+                                    {{else}}
+                                        <option value="0" >Inactivo</option>  
+                                        <option value="1" >Activo</option>
+                                    {{/if}}
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="kind" class="form-label">Tipo</label>
+                            <select id="kind" name="kind" class="form-select form-control" aria-label="Default select example" required>                                
+                                {{#if tipo }}
+                                    <option value="1" >Administrador</option>
+                                    <option value="0" >Encargado</option>      
+                                {{else}}
+                                    <option value="0" >Encargado</option>  
+                                    <option value="1" >Administrador</option>
+                                {{/if}}                                                      
+                            </select>                          
+                        </div>
+           
+                        <div class="form-group mt-2">
+                            <button class="btn btn-success btn-block">
+                                Guardar
+                            </button> 
+                            <a href="/persons" class="btn btn-danger">Cancelar</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function mostrarContrasena(){
+    var tipo = document.getElementById("password");  
+
+        if(tipo.type == "password"){
+            tipo.type = "text";
+            document.getElementById("btn").innerHTML = "Ocultar contraseña";
+        }else{
+            tipo.type = "password";
+            document.getElementById("btn").innerHTML = "Mostrar contraseña";    
+        }
+    }
+
+</script>
